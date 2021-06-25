@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    
+    <br>
+   <div class="card bg-light">
+    <div class="card-header text-center text-white bg-primary mb-3">
+      Register
+    </div>
+    <div class="card-body">
+      <form action="/signup/" method="post" autocomplete="off">
+        {% csrf_token %}
+  
+        <div class="form-group">
+    <label for="exampleInputUserName">User Name</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="uname" required>
+    <span></span>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="email" required>
+    <span></span>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" onkeyup="check()" name="password" required>
+    <span></span>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Confirm Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword2" onkeyup="check()" name="cpassword" required>
+    <span id="message"></span>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Address</label>
+    <textarea name="address" class="form-control" rows="3" required></textarea>
+    <span></span>
+  </div>
+
+  <center><button type="submit" class="btn btn-primary" id="register">Register</button></center>
+</form>
+  <center><a href="/" style="text-decoration: none;"><button class="btn btn-warning" id="login">Login</button></a></center>
+    </div>
+   </div>
+
+<script type="text/javascript">
+  var check = function() 
+  {
+    if (document.getElementById('exampleInputPassword1').value == document.getElementById('exampleInputPassword2').value) 
+    {
+        document.getElementById('message').style.color = 'green';
+        document.getElementById('message').innerHTML = 'matching';
+    } 
+    else 
+    {
+        document.getElementById('message').style.color = 'red';
+        document.getElementById('message').innerHTML = 'not matching';
+    }
+  }
+   </script>
+{% endblock %}

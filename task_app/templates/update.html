@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <br><br>
+   <div class="card bg-light">
+    <div class="card-header text-center text-white bg-primary mb-3">
+      Register
+    </div>
+    <div class="card-body">
+      <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+  <center><button type="submit" class="btn btn-primary" id="register">Update</button></center>
+</form >
+  <center><a href="{% url 'data' %}" style="text-decoration: none;"><button class="btn btn-warning" id="login">Details Page</button></a></center>
+    </div>
+   </div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br><br><br>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<a href="{% url 'logout' %}"><button class="btn btn-warning">Logout</button></a>
+</p>
+<div class="card bg-light">
+	<div class="card-header text-center text-white bg-primary">User Details</div>
+	<div class="card-body">
+		<table class="table table-borderless table-hover">
+			<tr>
+				<th>Username</th>
+				<td>{{ l.username }}</td>
+				<td><a href="{% url 'update' l.id %}"><button class="btn btn-info"><i class='fas fa-edit'></i></button></a></td>
+				<td><a href="{% url 'deletedata' l.id %}">
+					<button class="btn btn-warning" type="submit"><i class='fas fa-trash-alt'></i></button></a></td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td>{{ l.email }}</td>
+				<td><a href="{% url 'update' l.id %}"><button class="btn btn-info"><i class='fas fa-edit'></i></button></a></td>
+				<td><a href="{% url 'deletedata' l.id %}">
+					<button class="btn btn-warning" type="submit"><i class='fas fa-trash-alt'></i></button></a></td>
+			</tr>
+
+				<th>Address</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+			{% for l in ls %}
+			<tr>
+				<td>{{ l.username }}</td>
+				<td>{{ l.email }}</td>
+				<td>{{ l.address }}</td>
+				<td><a href="{% url 'update' l.id %}"><button class="btn btn-info"><i class='fas fa-edit'></i></button></a></td>
+				<td><a href="{% url 'deletedata' l.id %}">
+					<button class="btn btn-warning" type="submit"><i class='fas fa-trash-alt'></i></button></a></td>
+					
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+</div>
+{% endblock %}
